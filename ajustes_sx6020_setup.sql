@@ -1,0 +1,39 @@
+UPDATE SX6020
+SET 
+    X6_CONTEUD = 'http://10.0.2.80:4090',
+    X6_CONTSPA = 'http://10.0.2.80:4090',
+    X6_CONTENG = 'http://10.0.2.80:4090'
+WHERE X6_VAR = 'MV_SPEDURL';
+
+
+UPDATE SX6020
+SET 
+    X6_CONTEUD = 'http://10.0.2.79:4090',
+    X6_CONTSPA = 'http://10.0.2.79:4090',
+    X6_CONTENG = 'http://10.0.2.79:4090'
+WHERE X6_VAR = 'MV_TAFSURL';
+
+UPDATE SX6020
+SET 
+    X6_CONTEUD = 'C20Y69_170548_PR_PD',
+    X6_CONTSPA = 'C20Y69_170548_PR_PD',
+    X6_CONTENG = 'C20Y69_170548_PR_PD'
+WHERE X6_VAR = 'MV_TAFTALI';
+
+UPDATE SX6020
+SET 
+    X6_CONTEUD = 'http://alvorecer170548.protheus.cloudtotvs.com.br:8800/workflow',
+    X6_CONTSPA = 'http://alvorecer170548.protheus.cloudtotvs.com.br:8800/workflow',
+    X6_CONTENG = 'http://alvorecer170548.protheus.cloudtotvs.com.br:8800/workflow'
+WHERE X6_VAR = 'MV_WFHTTPE';
+
+UPDATE SX6020
+SET 
+    X6_CONTEUD = '10.0.2.39:8800/workflow/',
+    X6_CONTSPA = '10.0.2.39:8800/workflow/',
+    X6_CONTENG = '10.0.2.39:8800/workflow/'
+WHERE X6_VAR = 'MV_WFHTTPI';
+
+SELECT X6_CONTEUD, X6_CONTSPA, X6_CONTENG
+FROM SX6020
+WHERE X6_VAR IN ('MV_SPEDURL', 'MV_NFCEURL', 'MV_TAFSURL', 'MV_TAFPORT', 'MV_TAFTALI', 'MV_TAFREST', 'MV_BACKEND', 'MV_GCTPURL', 'ZZ_WFIPEXT', 'ZZ_WFQHOST', 'MV_WFBRWSR', 'MV_WFHTTPE', 'MV_WFHTTPI', 'MV_NGWFHT');

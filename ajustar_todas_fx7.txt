@@ -1,0 +1,25 @@
+-- Acessar todas as tabelas FX7* e alterar todos os registros
+DECLARE @table_name NVARCHAR(255)
+DECLARE @sql NVARCHAR(MAX)
+
+-- Cursor para percorrer todas as tabelas que começam com FX7
+DECLARE table_cursor CURSOR FOR
+SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME LIKE 'FX7%'
+
+OPEN table_cursor
+
+FETCH NEXT FROM table_cursor INTO @table_name
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    -- Montar a query para atualizar os campos em todas as tabelas FX7*
+    SET @sql = 'UPDATE ' + @table_name + ' SET D_E_L_E_T_ = ''*'''
+    EXEC sp_executesql @sql
+
+    FETCH NEXT FROM table_cursor INTO @table_name
+END
+
+CLOSE table_cursor
+DEALLOCATE table_cursor
